@@ -1,6 +1,6 @@
 # ELIXIR ALGO WORKSHOP
 
-CLIs to run the project:
+CLIs to run individual programs:
 
 - iex
 - elixir (recommended)
