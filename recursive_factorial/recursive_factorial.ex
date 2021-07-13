@@ -13,7 +13,11 @@ defmodule Algo.RecursiveFactorial do
   defguard is_valid_factorial_input_guard(number) when is_integer(number) and number > 0
 
   def factorial(0), do: 1
-  def factorial(number) when is_valid_factorial_input_guard(number), do: "cool"
+
+  def factorial(number) when is_valid_factorial_input_guard(number) do
+    number * factorial(number - 1)
+  end
+
   def factorial(_), do: "Invalid Input. Use positive integers only!"
 end
 
@@ -30,5 +34,5 @@ end
 
 Algo.RecursiveFactorial.Consumer.consume(0)
 Algo.RecursiveFactorial.Consumer.consume(1)
-Algo.RecursiveFactorial.Consumer.consume(2)
+Algo.RecursiveFactorial.Consumer.consume(20)
 Algo.RecursiveFactorial.Consumer.consume(2.4)
