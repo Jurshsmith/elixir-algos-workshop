@@ -14,6 +14,7 @@ defmodule Algo.SimpleAgeValidator do
   def get_age_bracket(_) do
     throw({ :error, "Invalid Type" })
   end
+
 end
 
 defmodule Algo.SimpleAgeValidator.Consumer do
@@ -24,7 +25,7 @@ defmodule Algo.SimpleAgeValidator.Consumer do
     # Use tuples {} for small data set that are related
     # Use map %{} for map use cases
 
-    agesToSimulate = ["cool", 12, 20, 40, 23, 50, 21, 4, 23, 13]
+    agesToSimulate = [12, 20, 40, 23, 50, 21, 4, 23, 13]
 
     # this arrangement infers that first param is from the top and second param for .each function is what you passed to it
     try do
