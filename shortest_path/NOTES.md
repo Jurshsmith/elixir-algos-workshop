@@ -4,10 +4,14 @@ Task: Solve shortest path with adjacency list and adjacency matrix using Dijkstr
 
 Answer: 
 
+So the Shortest Path from A-Z is:
+A – C – B – D – Z with a length of 14
+
+
 ![Task-2](./images/shortest_path_2.png)
 
 Answer: 
+ 
+The shortest path from Home to office is:
 
-![Task-3](./images/shortest_path_3.png)
-
-Answer: 
+Home - A - C - E - Office with weight of 14
