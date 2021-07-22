@@ -1,7 +1,6 @@
 defmodule Algo.PriorityQueue do
   def transform_list_to_max_heap(list) when is_list(list) do
-    list
-    |> Enum.map(&(&1 * 2))
+    # this should create a map structure that that has
   end
 
   def transform_list_to_min_heap do
