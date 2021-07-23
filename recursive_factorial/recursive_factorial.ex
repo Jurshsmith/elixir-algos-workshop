@@ -19,12 +19,29 @@ defmodule Algo.RecursiveFactorial do
   end
 
   def factorial(_), do: "Invalid Input. Use positive integers only!"
+
+  def of(0), do: 1
+  def of(n), do: of(n, 1)
+  def of(1, acc), do: acc
+  def of(n, acc) when n > 1 do
+    # Tail call optimized
+    # because recursion is the
+    # last calculation
+    of(n - 1, acc * n)
+  end
 end
 
 defmodule Algo.RecursiveFactorial.Consumer do
   def consume(number) do
-    Algo.RecursiveFactorial.factorial(number)
-    |> IO.puts()
+    # Not tail optimized
+    number
+    |> Algo.RecursiveFactorial.factorial
+    |> IO.puts
+
+    # Tail optimized
+    number
+    |> Algo.RecursiveFactorial.of
+    |> IO.puts
 
     # Function Stack chaining. The last on the chain starts the stack, and obviously the first on the chain gets
     # evaluated first in the common LIFO DS
