@@ -1,4 +1,5 @@
 
+// Would require clean up and validation in real world
 function allPossiblePalindromes(str, state = {}) {
   if (str.length > 1) {
     if (!state['initial_string']) {
@@ -14,12 +15,10 @@ function allPossiblePalindromes(str, state = {}) {
     allPossiblePalindromes(str.slice(0, str.length - 1), state);
 
     // coming out of the stack of the initial string, we want to make the initial string now start from the next letter till the end
-    let initialString = state['initial_string'];
-    initialString = initialString.slice(1, initialString.length);
-    state['initial_string'] = initialString;
+    state['initial_string'] = state['initial_string'].slice(1, state['initial_string'].length);
 
 
-    allPossiblePalindromes(initialString, state);
+    allPossiblePalindromes(state['initial_string'], state);
   }
 
   // destructure the palindromes from the state after execution all the stacks.
@@ -28,3 +27,6 @@ function allPossiblePalindromes(str, state = {}) {
 }
 
 console.log(allPossiblePalindromes('aabcaacdadsaewawt'));
+
+// Don't exceed Node js stack size of  11034, to check when string has exceeded it ? use stringslength * stringslength i.e. Max words to compute is 105 in node js. After clean up, the string below is 98 in length
+console.log(allPossiblePalindromes('Dennis, Nell, Edna, Leon, Nedra, Anita, Rolf, Nora, Alice, Carol, Leo, Jane, Reed, Dena, Dale, Basil, Rae, Penny, Lana, Dave, Denny, Lena, Ida'.replace(/\s|,/g, '')));
